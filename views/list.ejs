@@ -26,7 +26,6 @@
       crossorigin="anonymous"
     ></script>
   </head>
-
   <body>
     <!-- background image -->
     <img src="images/bgimg.jpg" alt="background image" class="bgimage" />
@@ -34,7 +33,7 @@
     <!-- big heading  -->
     <div class="box heading"><h1><%=kindOfDay%></h1></div>
 
-    <div class="list box">
+    <div class="list box" id = "gradient">
       <ul>
         <% for (var i = 0; i < newListItem.length; i++) { %>
         <li class="list-item">
@@ -51,6 +50,7 @@
           class="form-control text-center"
           name="newItem"
           placeholder="New Item!"
+          focus
         />
         <button
           type="submit"

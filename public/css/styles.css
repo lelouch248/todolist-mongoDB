@@ -107,3 +107,41 @@ input [type="checkbox"] {
   justify-content: center;
 }
 
+    /* Create the gradient animation */
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Apply the animation to the <div> element */
+    #gradient {
+      animation: gradient 10s ease infinite;
+      background: linear-gradient(to right, #C5E3EA, #D3D6EE, #FAE4E1);
+      background-size: 200% 100%;
+    }
+
+
+    @keyframes add {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    #add{
+      animation: gradient 10s ease infinite;
+      background: linear-gradient(to left, #EAC7C7, #A0C3D2,#F7F5EB, #EAE0DA);
+      background-size: 200% 100%;
+    }
