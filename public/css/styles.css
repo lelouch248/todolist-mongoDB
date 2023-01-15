@@ -1,0 +1,92 @@
+body,
+html {
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Dancing Script", cursive;
+  font-size: 4rem;
+}
+li {
+  font-family: "JetBrains Mono", monospace;
+}
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  text-decoration: none;
+}
+
+input[type="checkbox"]:checked + label.strike{
+  text-decoration: line-through;
+}
+
+.bgimage {
+  background-size: 100%;
+  background-position: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  z-index: -1;
+  opacity: 0.8;
+}
+.heading {
+  text-align: center;
+  font-size: 4rem;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  color: #13005a;
+}
+
+.list {
+  margin: auto;
+  margin-top: 100px;
+  width: 30%;
+  padding: 10px;
+  color: #13005a;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.list-item input [type="checkbox"] {
+  text-align: center;
+  margin: 5px;
+  padding: 0 5px;
+  display: flex;
+}
+
+input [type="text"]{
+    text-align: center;
+    margin: 5px;
+    padding: 0 5px;
+    display: flex;
+}
+.list-item {
+  padding-bottom: 5px;
+}
+
+.input-group {
+  display: flex;
+  margin: auto;
+  width: 30%;
+  padding: 10px;
+  color: #13005a;
+}
+
+
+.itext{
+    position: relative;
+}
+
+.add-btn{}
