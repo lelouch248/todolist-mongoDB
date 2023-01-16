@@ -15,12 +15,10 @@ h6 {
 li {
   font-family: "JetBrains Mono", monospace;
 }
-ul {
-  list-style-type: none;
-}
-
-ul li {
+ li {
   text-decoration: none;
+  list-style-type: none;
+
 }
 
 input[type="checkbox"]:checked + label.strike{

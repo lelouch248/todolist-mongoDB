@@ -1,47 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>List ✏️</title>
-    <link
-      rel="icon"
-      type="img"
-      href="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-to-do-list-morning-flaticons-lineal-color-flat-icons.png"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Dancing+Script:wght@700&family=JetBrains+Mono&display=swap"
-      rel="stylesheet"
-    />
-    <link href="css\styles.css" rel="stylesheet" type="text/css" />
-    <script
-      src="https://kit.fontawesome.com/11709083e0.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <!-- background image -->
-    <img src="images/bgimg.jpg" alt="background image" class="bgimage" />
-
+<%- include("header") -%> 
+<%- include("bg") %> 
     <!-- big heading  -->
-    <div class="box heading"><h1><%=kindOfDay%></h1></div>
+    <div class="box heading"><h1><%=ListTitle%></h1></div>
 
     <div class="list box" id = "gradient">
-      <ul>
         <% for (var i = 0; i < newListItem.length; i++) { %>
+      <div>
         <li class="list-item">
           <input class="form-check-input" type="checkbox" />
           <label class="strike"><%= newListItem[i] %></label>
         </li>
+      </div>
         <% } %>
-      </ul>
     </div>
     <form action="/" method="post">
       <div class="itext">
@@ -54,15 +24,24 @@
         />
         <button
           type="submit"
-          name="button"
+          name="list"
           id = "add"
+          value=<%=ListTitle%> 
         ><span class="fa-solid fa-circle-plus add-img"></span></button>
       </div>
     </form>
+
+    <form action="/" method="post">
+      <button
+        type="submit"
+        name="button"
+        id = "delete"
+      ><span class="fa-solid fa-circle-minus delete-img"></span></button>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
-  </body>
-</html>
+
+
+    <%- include("footer") -%> 
