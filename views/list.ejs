@@ -1,41 +1,44 @@
-<%- include("header") -%> 
-<%- include("bg") %> 
-    <!-- big heading  -->
-    <div class="box heading"><h1><%=ListTitle%></h1></div>
+<%- include("header") -%> <%- include("bg") -%>
+<!-- big heading  -->
+<div class="box heading"><h1><%=ListTitle%></h1></div>
 
-    <div class="list box" id = "gradient">
-        <% for (var i = 0; i < newListItem.length; i++) { %>
-      <div>
-        <li class="list-item">
-          <input class="form-check-input" type="checkbox" />
-          <label class="strike"><%= newListItem[i] %></label>
-        </li>
-      </div>
-        <% } %>
-    </div>
-    <form action="/" method="post">
-      <div class="itext">
+<div class="list box" id="gradient">
+  <% newListItem.forEach(items => { %>
+  <form action="/delete" method="post">
+    <div>
+      <li class="list-item">
         <input
-          type="text"
-          class="form-control text-center"
-          name="newItem"
-          placeholder="New Item!"
-          focus
+          class="form-check-input"
+          type="checkbox"
+          name="checkbox"
+          value= <%= items._id%>
+          onchange= this.form.submit()
         />
-        <button
-          type="submit"
-          name="list"
-          id = "add"
-          value=<%=ListTitle%> 
-        ><span class="fa-solid fa-circle-plus add-img"></span></button>
-      </div>
-    </form>
-    
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    ></script>
+        <label class="strike"> <%= items.item %> </label>
+      </li>
+    </div>
+  </form>
+  <% }) %>
+</div>
+<form action="/" method="post">
+  <div class="itext">
+    <input
+      type="text"
+      class="form-control text-center"
+      name="newItem"
+      placeholder="New Item!"
+      focus
+    />
+    <button type="submit" name="list" id="add" value="<%ListTitle%>"
+      ><span class="fa-solid fa-circle-plus add-img"></span>
+    </button>
+  </div>
+</form>
 
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+  crossorigin="anonymous"
+></script>
 
-    <%- include("footer") -%> 
+<%- include("footer") -%>
