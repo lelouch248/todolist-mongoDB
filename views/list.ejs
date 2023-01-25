@@ -11,12 +11,13 @@
           class="form-check-input"
           type="checkbox"
           name="checkbox"
-          value= <%= items._id%>
-          onchange= this.form.submit()
+          value= "<%= items._id%>"
+          onchange= "this.form.submit()"
         />
         <label class="strike"> <%= items.item %> </label>
       </li>
     </div>
+    <input type="hidden" name = "listName" value = "<%=ListTitle %>" />
   </form>
   <% }) %>
 </div>
@@ -29,7 +30,7 @@
       placeholder="New Item!"
       focus
     />
-    <button type="submit" name="list" id="add" value="<%ListTitle%>"
+    <button type="submit" name="list" id="add" value="<%=ListTitle%>"
       ><span class="fa-solid fa-circle-plus add-img"></span>
     </button>
   </div>
