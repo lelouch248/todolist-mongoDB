@@ -10,10 +10,13 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://0.0.0.0:27017/todolistDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://Karthik:karthik@cluster0.fohsgzm.mongodb.net/todolistDB",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const itemSchema = {
   item: { type: String, required: true },
@@ -95,7 +98,7 @@ app.post("/", function (req, res) {
     item.save();
     res.redirect("/");
   } else {
-    List.findOne({ name: listName}, function (err, foundList) {
+    List.findOne({ name: listName }, function (err, foundList) {
       foundList.items.push(item);
       foundList.save();
       res.redirect("/" + listName);
@@ -115,20 +118,20 @@ app.post("/delete", function (req, res) {
         console.log("the data has been successfully deleted!");
       }
     });
-    res.redirect("/");  
-  }
-  else {
+    res.redirect("/");
+  } else {
     List.findOneAndUpdate(
-      {name: listName},
-      {$pull : {items:{_id: checkedItemId}}}, 
-      function(err, foundList){
-      if(!err){
-        console.log("successfully deleted");
-        res.redirect("/"+listName);
-      }else{
-        console.log(err);
+      { name: listName },
+      { $pull: { items: { _id: checkedItemId } } },
+      function (err, foundList) {
+        if (!err) {
+          console.log("successfully deleted");
+          res.redirect("/" + listName);
+        } else {
+          console.log(err);
+        }
       }
-    });
+    );
   }
 });
 
